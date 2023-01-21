@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>WhatsApp redirector</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='fancyForm.css'>
+    <script src='index.js' charset='utf-8'></script>
+    <script>$(function () {
+            $("includePhoneCode").load("countryPhoneCode.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="phoneInputDiv">
+        <div id="includePhoneCode"></div>
+        <input id="phoneInputTextBox" placeholder="Enter Phone numer with country code"><br>
+        <button id="openWhatsappChat" onclick="openWAChat()">Open WA Chat</button>
+    </div>
+
+</body>
+
+</html>
