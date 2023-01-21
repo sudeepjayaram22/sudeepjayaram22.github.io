@@ -1,6 +1,6 @@
 div {
     text-align: center;
-    padding-top: 50px;
+    /* padding-top: 50px; */
 }
 
 #openWhatsappChat {
@@ -46,4 +46,52 @@ div {
 
 phoneInputTextBox:focus {
     border: 2px solid rgb(124, 138, 255);
+}
+
+body {
+    background: #000405;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+}
+
+div#titleText {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    /* color: #000000; */
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+}
+
+img {
+    height: 50px;
+    width: auto;
+}
+
+p {
+    font-size: 1vw;
+    /* text-transform: uppercase; */
+    text-align: center;
+    line-height: 1;
+}
+
+.fancy {
+    @supports (background-clip: text) or (-webkit-background-clip: text) {
+        background-image:
+            url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='%2300A080' d='M0 0h2255v899H0z'/%3E%3Ccircle cx='366' cy='207' r='366' fill='%2300FDCF'/%3E%3Ccircle cx='1777.5' cy='318.5' r='477.5' fill='%2300FDCF'/%3E%3Ccircle cx='1215' cy='737' r='366' fill='%23008060'/%3E%3C/g%3E%3C/svg%3E%0A");
+        background-size: 110% auto;
+        background-position: center;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
 }
