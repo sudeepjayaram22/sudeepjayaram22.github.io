@@ -42,7 +42,7 @@ div {
     box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
     background: rgb(251, 251, 251);
     transition: all 0.1s ease 0s;
-    margin: 10px;
+    margin-bottom: 10px;
 }
 
 phoneInputTextBox:focus {
@@ -51,7 +51,7 @@ phoneInputTextBox:focus {
 
 body {
     background: #000405;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,6 +71,7 @@ div#titleText {
     font-style: normal;
     font-variant: small-caps;
     text-transform: none;
+    margin: 50px;
 }
 
 img {
