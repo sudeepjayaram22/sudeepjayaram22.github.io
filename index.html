@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Welcome Page</title>
+    <title>ApPlatz</title>
     <!-- <link rel="stylesheet" type="text/css" href="style.css">
  -->
     <style>
@@ -24,6 +24,42 @@
         }
 
         .app-tile {
+            width: 150px;
+            /* Set the desired width for each app tile */
+            height: 150px;
+            /* Set the desired height for each app tile */
+            margin: 10px;
+            background-color: #f8f9fa;
+            /* Set the background color for the app tiles */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        .app-tile img {
+            max-width: 70%;
+            max-height: 70%;
+            object-fit: contain;
+        }
+
+        /* .app-tile h3 {
+            margin-top: 10px;
+        } */
+
+
+
+        /* 
+        .app-tile {
             margin: 20px;
             padding: 20px;
             background-color: #fff;
@@ -32,27 +68,27 @@
             text-decoration: none;
             color: #333;
             transition: transform 0.2s;
-        }
+        } */
 
         .app-tile:hover {
             transform: scale(1.05);
         }
 
-        .app-tile img {
+        /* .app-tile img {
             width: 100px;
             height: 100px;
             object-fit: contain;
             margin-bottom: 10px;
-        }
+        } */
 
         .app-tile p {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
         }
 
 
         /* Search Bar */
-        .search-bar {
+        /* .search-bar {
             margin-bottom: 20px;
         }
 
@@ -60,14 +96,40 @@
             width: 50%;
             padding: 10px;
             font-size: 16px;
+        } */
+
+
+
+        /* Fancy Search Bar */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            /* Add margin to adjust spacing as needed */
+        }
+
+        #searchInput {
+            width: 500px;
+            /* Set the desired width for the search input */
+            padding: 10px;
+            font-size: 16px;
+            background-color: #f8f9fa;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            transition: background-color 0.3s ease-in-out;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #searchInput:focus {
+            background-color: #fff;
         }
     </style>
-
-
 </head>
 
 <body>
-    <h1>Welcome to Futuristic Apps</h1>
+    <h1>Welcome to ApPlatz</h1>
     <div class="search-bar">
         <input type="text" id="searchInput" onkeyup="searchApps()" placeholder="Search for apps...">
     </div>
@@ -78,7 +140,7 @@
         </a>
         <a href="netTakeHomeSalaryCalculator.html" class="app-tile">
             <img src="indian-rupee-sign-money-bag.png" alt="Net Take Home Salary Calculator">
-            <p>Net Take Home Salary Calculator</p>
+            <p>Calculate Net Take Home Salary</p>
         </a>
         <!-- Add more app tiles here for new apps -->
     </div>

@@ -14,7 +14,7 @@
         }
 
         .calculator {
-            max-width: 750px;
+            max-width: 500px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f8f8f8;
@@ -63,7 +63,7 @@
             font-size: 16px;
             font-weight: bold;
             text-align: center;
-            background-color: #7daeff;
+            background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -88,21 +88,6 @@
             max-width: 100%;
             height: auto;
         }
-
-        .calcForm,
-        .resultWrap {
-            flex: 1;
-            padding: 20px;
-            /* border: 1px solid #000; */
-        }
-
-        .results-label {
-            margin-top: -10px;
-        }
-
-        .caclFormWrapper {
-            display: flex;
-        }
     </style>
 </head>
 
@@ -110,55 +95,40 @@
     <div class="calculator" id="calculator">
         <h2><img src="indian-rupee-sign-money-bag.png" alt="Image description" class="image-icon">
             Net Take Home Salary Calculator</h2>
-        <div class="caclFormWrapper">
-            <div class="calcForm" id="calcForm">
-                <label class="input-label">Cost to Company (CTC) (INR/year)</label>
-                <input type="number" id="ctc" class="input-field" placeholder="Enter CTC yearly" value="1600000">
-                <label class="input-label">Basic Salary (INR/month)</label>
-                <input type="number" id="basicSalary" class="input-field" placeholder="Enter basic salary per month" value="53333.33">
-                <label class="input-label">Rent Paid (INR/month)</label>
-                <input type="number" id="rentPaid" class="input-field" placeholder="Enter rent paid per month"
-                    value="0">
-                <label class="input-label">HRA (INR/month)</label>
-                <input type="number" id="hra" class="input-field" placeholder="Enter HRA per month" value="26666.67">
-                <label class="input-label">Investments under 80C (INR/year)</label>
-                <input type="number" id="investments80C" class="input-field" placeholder="Enter investments under 80C"
-                    value="150000">
-                <label class="input-label">Home Loan Interest (24B) (Max 2 Lakhs) (INR/year)</label>
-                <input type="number" id="homeLoanInterest" class="input-field" placeholder="Enter home loan interest"
-                    value="200000">
-                <label class="input-label">Medical Insurance Premium (INR/month)</label>
-                <input type="number" id="medicalInsurancePremium" class="input-field"
-                    placeholder="Enter medical insurance premium per month" value="550">
-                <label class="input-label">Employee Provident Fund (INR/month)</label>
-                <input type="number" id="epfEmployee" class="input-field"
-                    placeholder="Enter employee provident fund per month" value="6400.00">
-                <label class="input-label">Employer Provident Fund (INR/month)</label>
-                <input type="number" id="epfEmployer" class="input-field"
-                    placeholder="Enter employer provident fund per month" value="6400.00">
-                <label class="input-label">Tax Regime</label>
-                <select id="taxRegime" class="select-field">
-                    <option value="old">Old Tax Regime</option>
-                    <option value="new">New Tax Regime</option>
-                </select>
-            </div>
-            <div class="resultWrap">
-                <!-- <button onclick="calculateNetTakeHome()" class="btn-calculate">Calculate Net Take Home Salary</button> -->
-                <div id="result" class="result">
-                    <h3>Take Home Salary (Monthly)</h3>
-                    <label class="results-label">₹ <span id="resultMonthly">0</span></label>
-                    <h3>Take Home Salary (Annual)</h3>
-                    <label class="results-label">₹ <span id="resultAnnual">0</span></label>
-                    <h3>Income Tax (Annual)</h3>
-                    <label class="results-label">₹ <span id="incomeTax">0</span></label>
+        <label class="input-label">Cost to Company (CTC) (INR/year)</label>
+        <input type="number" id="ctc" class="input-field" placeholder="Enter CTC yearly">
+        <label class="input-label">Basic Salary (INR/month)</label>
+        <input type="number" id="basicSalary" class="input-field" placeholder="Enter basic salary per month">
+        <label class="input-label">Rent Paid (INR/month)</label>
+        <input type="number" id="rentPaid" class="input-field" placeholder="Enter rent paid per month" value="0">
+        <label class="input-label">HRA (INR/month)</label>
+        <input type="number" id="hra" class="input-field" placeholder="Enter HRA per month">
+        <label class="input-label">Investments under 80C (INR/year)</label>
+        <input type="number" id="investments80C" class="input-field" placeholder="Enter investments under 80C"
+            value="150000">
+        <label class="input-label">Home Loan Interest (24B) (Max 2 Lakhs) (INR/year)</label>
+        <input type="number" id="homeLoanInterest" class="input-field" placeholder="Enter home loan interest"
+            value="200000">
+        <label class="input-label">Medical Insurance Premium (INR/month)</label>
+        <input type="number" id="medicalInsurancePremium" class="input-field"
+            placeholder="Enter medical insurance premium per month" value="550">
+        <label class="input-label">Employee Provident Fund (INR/month)</label>
+        <input type="number" id="epfEmployee" class="input-field" placeholder="Enter employee provident fund per month"
+            value="1800">
+        <label class="input-label">Employer Provident Fund (INR/month)</label>
+        <input type="number" id="epfEmployer" class="input-field" placeholder="Enter employer provident fund per month"
+            value="1800">
+        <label class="input-label">Tax Regime</label>
+        <select id="taxRegime" class="select-field">
+            <option value="old">Old Tax Regime</option>
+            <option value="new">New Tax Regime</option>
+        </select>
+        <button onclick="calculateNetTakeHome()" class="btn-calculate">Calculate Net Take Home Salary</button>
+        <div id="result" class="result"></div>
 
-                </div>
-
-                <div class="chart-container">
-                    <h2>Pie Chart</h2>
-                    <canvas id="chart"></canvas>
-                </div>
-            </div>
+        <div class="chart-container">
+            <h2>Pie Chart</h2>
+            <canvas id="chart"></canvas>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -171,15 +141,7 @@
         const pfEmployer = document.getElementById('epfEmployer');
 
 
-        window.addEventListener('load', function (e) {
-            calculateAndLoadPie(e)
-        })
-
         calc.addEventListener('input', function (e) {
-            calculateAndLoadPie(e)
-        })
-
-        function calculateAndLoadPie(e) {
             calculateNetTakeHome()
             e.preventDefault();
             const data = {
@@ -195,13 +157,14 @@
                 data: data,
                 options: {}
             });
-        }
+
+        })
 
         ctc.addEventListener('input', function () {
-            basicSalary.value = ((ctc.value / 12) * 0.4).toFixed(2);
-            hra.value = (basicSalary.value * 0.5).toFixed(2);
-            pfEmployee.value = (basicSalary.value * .12).toFixed(2);
-            pfEmployer.value = (basicSalary.value * .12).toFixed(2);
+            basicSalary.value = (ctc.value / 12) * 0.4;
+            hra.value = basicSalary.value * 0.5;
+            pfEmployee.value = basicSalary.value * .12;
+            pfEmployer.value = basicSalary.value * .12;
         })
 
         pfEmployee.addEventListener('input', function () {
@@ -235,27 +198,32 @@
             } else {
                 tax = calculateTaxNewRegime(taxableSalary);
             }
-            tax = tax.toFixed(2);
 
+            // Calculate monthly take home salary
             var monthlyTakeHome = (ctc / 12) - (tax / 12) - epfEmployee;
+
+            // Calculate annual take home salary
             annualTakeHome = monthlyTakeHome * 12;
 
             // Display results
-            document.getElementById('resultMonthly').innerHTML = monthlyTakeHome.toFixed(2);
-            document.getElementById('resultAnnual').innerHTML = annualTakeHome.toFixed(2);
-            document.getElementById('incomeTax').innerHTML = tax;
+            var resultElement = document.getElementById('result');
+            resultElement.innerHTML = "Monthly Take Home: " + monthlyTakeHome.toFixed(2) + "<br>Annual Take Home: " + annualTakeHome.toFixed(2);
         }
 
         // Function to calculate tax in old regime
         function calculateTaxOldRegime(taxableSalary) {
             var tax = 0;
             if (taxableSalary <= 250000) {
+                // No tax for income up to 2.5 lakhs
                 tax = 0;
             } else if (taxableSalary <= 500000) {
+                // 5% tax for income between 2.5 lakhs to 5 lakhs
                 tax = taxableSalary * 0.05;
             } else if (taxableSalary <= 1000000) {
+                // 20% tax for income between 5 lakhs to 10 lakhs
                 tax = taxableSalary * 0.20;
             } else {
+                // 30% tax for income above 10 lakhs
                 tax = taxableSalary * 0.30;
             }
             return tax;
