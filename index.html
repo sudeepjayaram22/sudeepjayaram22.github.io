@@ -2,28 +2,167 @@
 <html>
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>WhatsApp redirector</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='fancyForm.css'>
-    <script src='index.js' charset='utf-8'></script>
-    <script>$(function () {
-            $("includePhoneCode").load("countryPhoneCode.html");
-        });
-    </script>
+    <title>Welcome Page</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css">
+ -->
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        .app-tiles {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .app-tile {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        .app-tile:hover {
+            transform: scale(1.05);
+        }
+
+        .app-tile img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .app-tile p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+
+        /* Search Bar */
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        #searchInput {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+
+
 </head>
 
 <body>
-    <div id="phoneInputDiv">
-        <div id="includePhoneCode"></div>
-        <div id="titleText"> <img src="WhatsApp_icon.png" id="titleText" alt="[WhatsAppImage]">WhatsApp Redirector</img>
-        </div>
-        <p id="enterPhoneNumberText">Enter Phone Numer with country code</p>
-        <input id="phoneInputTextBox" placeholder="+91 99999 12345"><br>
-        <button id="openWhatsappChat" onclick="openWAChat()">Open Chat</button>
+    <h1>Welcome to Futuristic Apps</h1>
+    <div class="search-bar">
+        <input type="text" id="searchInput" onkeyup="searchApps()" placeholder="Search for apps...">
     </div>
+    <div class="app-tiles" id="appTiles">
+        <a href="whatsappRedirector.html" class="app-tile">
+            <img src="WhatsApp_icon.png" alt="WhatsApp Redirector">
+            <p>WhatsApp Redirector</p>
+        </a>
+        <a href="netTakeHomeSalaryCalculator.html" class="app-tile">
+            <img src="indian-rupee-sign-money-bag.png" alt="Net Take Home Salary Calculator">
+            <p>Net Take Home Salary Calculator</p>
+        </a>
+        <!-- Add more app tiles here for new apps -->
+    </div>
+    <!-- <div class="pagination">
+        <a href="#">&laquo; Previous</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">Next &raquo;</a>
+    </div> -->
+    <script>
+        // Search Apps
+        function searchApps() {
+            var input, filter, appTiles, appTile, appName, i;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            appTiles = document.getElementById("appTiles");
+            appTile = appTiles.getElementsByClassName("app-tile");
+            for (i = 0; i < appTile.length; i++) {
+                appName = appTile[i].getElementsByTagName("p")[0];
+                if (appName.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    appTile[i].style.display = "";
+                } else {
+                    appTile[i].style.display = "none";
+                }
+            }
+        }
 
+        // Pagination
+        // var currentPage = 1;
+        // showPage(currentPage);
+
+        // function showPage(pageNum) {
+        //     var pagination = document.getElementsByClassName("pagination")[0];
+        //     var pageLinks = pagination.getElementsByTagName("a");
+        //     if (pageNum < 1) {
+        //         pageNum = 1;
+        //     }
+        //     if (pageNum > pageLinks.length - 2) {
+        //         pageNum = pageLinks.length - 2;
+        //     }
+        //     for (var i = 1; i < pageLinks.length - 1; i++) {
+        //         pageLinks[i].className = "";
+        //     }
+        //     pageLinks[pageNum].className = "active";
+        //     var appTiles = document.getElementById("appTiles");
+        //     var appTile = appTiles.getElementsByClassName("app-tile");
+        //     var appsPerPage = 2; // Change this to the desired number of apps per page
+        //     var startIndex = (pageNum - 1) * appsPerPage;
+        //     var endIndex = startIndex + appsPerPage;
+        //     for (var i = 0; i < appTile.length; i++) {
+        //         if (i >= startIndex && i < endIndex) {
+        //             appTile[i].style.display = "";
+        //         } else {
+        //             appTile[i].style.display = "none";
+        //         }
+        //     }
+        // }
+
+        // function updatePageLinks() {
+        //     var pagination = document.getElementsByClassName("pagination")[0];
+        //     var pageLinks = pagination.getElementsByTagName("a");
+        //     for (var i = 1; i < pageLinks.length - 1; i++) {
+        //         pageLinks[i].onclick = function () {
+        //             currentPage = parseInt(this.innerHTML);
+        //             showPage(currentPage);
+        //         };
+        //     }
+        //     pageLinks[0].onclick = function () {
+        //         showPage(currentPage - 1);
+        //         currentPage--;
+        //     };
+        //     pageLinks[pageLinks.length - 1].onclick = function () {
+        //         showPage(currentPage + 1);
+        //         currentPage++;
+        //     };
+        // }
+
+        // updatePageLinks();
+
+
+    </script>
 </body>
 
 </html>
